@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Main
+public class ReverseNumber
 {
 
 public static void main(String[] args) {
