@@ -1,3 +1,3 @@
-javac MyFileTest.java
+javac MyFileTest.java                    
 java MyFileTest sample.txt
 
