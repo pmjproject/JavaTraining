@@ -1,0 +1,29 @@
+package com.mangalyaallo.allocation.service;
+
+import com.mangalyaallo.allocation.model.Allocation;
+import com.mangalyaallo.allocation.repository.AllocationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+import java.util.List;
+
+public class AllocationServiceImpl implements AllocationService {
+    @Autowired
+    AllocationRepository allocationRepository;
+
+
+    public Allocation save(Allocation allocation){
+        return allocationRepository.save(allocation);
+
+    }
+
+    @Override
+    public List<Integer> fetchAllAllocations() {
+        return allocationRepository.findAll();
+    }
+
+    @Override
+    public List<Allocation> getAllocationByEmployeeId(Integer id) {
+        return allocationRepository.findByEmpId(id);
+    }
+}
