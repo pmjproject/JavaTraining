@@ -10,3 +10,8 @@ spring:
       ddl-auto: create
     generate-ddl: true
     show-sql: true
+service:
+  host: http://localhost:8084
+  allocation:
+    findAll: /services/allocation
+    findByEmployeeId: /services/allocation/findByEmployeeId

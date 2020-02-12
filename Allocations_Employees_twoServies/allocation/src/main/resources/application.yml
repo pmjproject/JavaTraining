@@ -8,7 +8,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    generate-ddl: true
-    show-sql: true
-  server:
-      port: 8090
+#    generate-ddl: true
+#    show-sql: true
+server:
+      port: 8084

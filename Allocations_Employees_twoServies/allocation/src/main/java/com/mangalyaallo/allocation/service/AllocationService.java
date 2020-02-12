@@ -7,7 +7,7 @@ import java.util.List;
 public interface AllocationService {
     Allocation save(Allocation allocation);
 
-    List<Integer> fetchAllAllocations();
+    List<Allocation> fetchAllAllocations();
 
     List<Allocation> getAllocationByEmployeeId(Integer id);
 }

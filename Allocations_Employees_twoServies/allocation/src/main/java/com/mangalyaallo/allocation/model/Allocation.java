@@ -17,6 +17,7 @@ public class Allocation {
     private String start;
     private String end;
     private String allocation;
+    private Integer empId;
 
     public Integer getEmpId() {
         return empId;
@@ -26,7 +27,7 @@ public class Allocation {
         this.empId = empId;
     }
 
-    private Integer empId;
+
 
     public Integer getId() {
         return id;

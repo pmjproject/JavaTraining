@@ -33,10 +33,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee save(Employee employee) {
 
 
-        for (Telephone telephone : employee.getTelephones()) {
-            telephone.setEmployee(employee);
-
-        }
+//        for (Telephone telephone : employee.getTelephones()) {
+//            telephone.setEmployee(employee);
+//
+//        }
 
 
         return employeeRepository.save(employee);

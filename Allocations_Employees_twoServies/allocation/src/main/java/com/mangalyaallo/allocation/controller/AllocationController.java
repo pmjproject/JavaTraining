@@ -4,12 +4,12 @@ package com.mangalyaallo.allocation.controller;
 import com.mangalyaallo.allocation.model.Allocation;
 import com.mangalyaallo.allocation.service.AllocationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Repository
+@RestController
 @RequestMapping("/services")
 class AllocationController {
 

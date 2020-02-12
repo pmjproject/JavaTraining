@@ -18,7 +18,7 @@ public class AllocationServiceImpl implements AllocationService {
     }
 
     @Override
-    public List<Integer> fetchAllAllocations() {
+    public List<Allocation> fetchAllAllocations() {
         return allocationRepository.findAll();
     }
 
