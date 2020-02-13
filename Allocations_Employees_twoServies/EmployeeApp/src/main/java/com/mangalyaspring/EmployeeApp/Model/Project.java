@@ -1,11 +1,13 @@
 package com.mangalyaspring.EmployeeApp.Model;
 
+import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Data
 public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -21,21 +23,21 @@ public class Project {
         this.employee = employee;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getProject() {
-        return project;
-    }
-
-    public void setProject(String project) {
-        this.project = project;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public String getProject() {
+//        return project;
+//    }
+//
+//    public void setProject(String project) {
+//        this.project = project;
+//    }
 
 
 }

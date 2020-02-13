@@ -1,10 +1,13 @@
 package com.mangalyaspring.EmployeeApp.Model;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Data
 public class Employee {
 
     @Id
@@ -32,41 +35,42 @@ public class Employee {
         this.address = address;
     }
 
-    public List<Project> getProjects() {
-        return projects;
-    }
+//    public List<Project> getProjects() {
+//        return projects;
+//    }
+//
+//    public List<Telephone> getTelephones() {
+//        return telephones;
+//    }
+//
+//    public String getCity(Object employee) {
+//        return city;
+//    }
+//
+//    public void setCity(String city) {
+//        this.city = city;
+//    }
+//
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public String getName() {
+//
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public Address getAddress() {
+//        return address;
+//    }
 
-    public List<Telephone> getTelephones() {
-        return telephones;
-    }
-
-    public String getCity(Object employee) {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
 }
 

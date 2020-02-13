@@ -1,10 +1,12 @@
 package com.mangalyaspring.EmployeeApp.Model;
 
+import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Telephone {
 
     @Id
@@ -22,23 +24,23 @@ public class Telephone {
         this.employee = employee;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-
-    public void setEmployee(Employee employee) {
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public Integer getNumber() {
+//        return number;
+//    }
+//
+//    public void setNumber(Integer number) {
+//        this.number = number;
+//    }
+//
+//
+//    public void setEmployee(Employee employee) {
+//    }
 }
