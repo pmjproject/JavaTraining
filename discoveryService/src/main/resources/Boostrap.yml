@@ -1,6 +1,0 @@
-server:
-  port: 8791
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registory: true
