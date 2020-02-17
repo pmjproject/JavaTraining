@@ -32,7 +32,4 @@ public class Employee {
     @Transient
     private List<Allocation> allocations = new ArrayList<>();
 
-    public String getId() {
-        return null;
-    }
 }

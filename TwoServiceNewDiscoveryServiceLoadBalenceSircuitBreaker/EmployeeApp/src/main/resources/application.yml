@@ -1,5 +1,7 @@
 
 spring:
+  application:
+    name: employee
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/employeedb?createDatabaseIfNotExist=true

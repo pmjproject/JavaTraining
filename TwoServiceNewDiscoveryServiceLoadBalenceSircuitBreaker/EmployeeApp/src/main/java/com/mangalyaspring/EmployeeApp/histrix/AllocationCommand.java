@@ -12,30 +12,30 @@ import org.springframework.web.client.RestTemplate;
 
 public class AllocationCommand extends HystrixCommand<Allocation[]> {
 
-private Employee employee;
-private HttpHeaders httpHeaders;
-private RestTemplate restTemplate;
+        private Employee employee;
+        private HttpHeaders httpHeaders;
+        private RestTemplate restTemplate;
 
-protected Allocation[] run(){
+        protected Allocation[] run(){
 
-        HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
+                HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
 
-        ResponseEntity<Allocation[]> result = restTemplate.exchange("http://allocation/services/allocation/findByEmployeeId/" + employee.getId(), HttpMethod.GET, httpEntity, Allocation[].class);
+                ResponseEntity<Allocation[]> result = restTemplate.exchange("http://allocation/services/allocation/findByEmployeeId/" + employee.getId(), HttpMethod.GET, httpEntity, Allocation[].class);
 
-        return result.getBody();
-
-        }
-
-public AllocationCommand(Employee employee, HttpHeaders httpHeaders, RestTemplate restTemplate){
-        super(HystrixCommandGroupKey.Factory.asKey("default"));
-        this.employee = employee;
-        this.httpHeaders = httpHeaders;
-        this.restTemplate = restTemplate;
+                return result.getBody();
 
         }
 
-@Override
-protected Allocation[] getFallback() {
-        return new Allocation[0];
+        public AllocationCommand(Employee employee, HttpHeaders httpHeaders, RestTemplate restTemplate){
+                super(HystrixCommandGroupKey.Factory.asKey("default"));
+                this.employee = employee;
+                this.httpHeaders = httpHeaders;
+                this.restTemplate = restTemplate;
+
         }
+
+        @Override
+        protected Allocation[] getFallback() {
+                return new Allocation[0];
         }
+}

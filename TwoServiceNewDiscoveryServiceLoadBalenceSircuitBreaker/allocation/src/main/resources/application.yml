@@ -1,5 +1,7 @@
 
 spring:
+  application:
+    name: allocation
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/allocationdb?createDatabaseIfNotExist=true
