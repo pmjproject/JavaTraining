@@ -1,15 +1,11 @@
 package com.pmj.students.service;
 
-import com.pmj.students.model.Course;
 import com.pmj.students.model.Student;
 import com.pmj.students.model.Telephone;
 import com.pmj.students.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,4 +90,11 @@ public class StudentServiceImpl implements StudentService {
 //
 //        return student;
 //    }
+
+    @Override
+    public List<Student> getStudentsByCourseId(Integer id) {
+        List<Student> student = studentRepository.findByCourseId(id);
+
+        return student;
+    }
 }

@@ -1,5 +1,6 @@
 package com.pmj.students.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class Student {
     private Integer age;
     private String dob;
     private String studentCode;
-
+    private Integer courseId;
 
     public String getStudentCode() {
         return studentCode;
@@ -29,7 +30,13 @@ public class Student {
         this.studentCode = studentCode;
     }
 
+    public Integer getCourseId() {
+        return courseId;
+    }
 
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
@@ -101,7 +108,7 @@ public class Student {
         return id;
     }
 
-    @Transient
-    private List<Course> course = new ArrayList<>();
+
+
 
 }

@@ -43,6 +43,10 @@ public class StudentController {
 //
 //        return studentService.fetchCourse(id);
 //    }
+@RequestMapping("/student/{id}")
+public List<Student> getStudentsByCourseId(@PathVariable Integer id){
+    return studentService.getStudentsByCourseId(id);
+}
 
 
 }
