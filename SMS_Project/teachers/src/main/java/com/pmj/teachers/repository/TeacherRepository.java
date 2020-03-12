@@ -19,4 +19,6 @@ public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
 
     @Override
     public List<Teacher> findAll() ;
+
+    List<Teacher> findByCourseID(Integer courseId);
 }

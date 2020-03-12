@@ -56,4 +56,9 @@ public class TeacherServiceImpl implements TeachersService {
             return teacher.get();
         return new Teacher();
     }
+
+    @Override
+    public List<Teacher> getCourseById(Integer courseId) {
+        return teacherRepository.findByCourseID(courseId);
+    }
 }

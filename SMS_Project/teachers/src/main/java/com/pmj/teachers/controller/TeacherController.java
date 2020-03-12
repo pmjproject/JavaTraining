@@ -36,5 +36,12 @@ public class TeacherController {
         return teachersService.findByID(id);
     }
 
+    @GetMapping("/teacherC/{id}")
+    public List<Teacher> getCourseById(@PathVariable("id") Integer courseId){
+        System.out.println("kkkkkkkkkkkkkkkkkkkkk"+courseId);
+        return teachersService.getCourseById(courseId);
+    }
+
+
 
 }

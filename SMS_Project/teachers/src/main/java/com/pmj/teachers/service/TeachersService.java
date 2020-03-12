@@ -15,4 +15,6 @@ public interface TeachersService {
     String updateTeacher(Teacher newTeacherData);
 
     Teacher findByID(Integer id);
+
+    List<Teacher> getCourseById(Integer courseId);
 }

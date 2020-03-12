@@ -1,6 +1,6 @@
 spring:
-  application:
-    name: course
+#  application:
+#    name: course
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/courseDB?createDatabaseIfNotExist=true
@@ -8,6 +8,6 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: create
-server:
-        port: 8181
+      ddl-auto: update
+#server:
+#        port: 8181

@@ -16,6 +16,8 @@ public interface StudentService {
 
     List<Student> getStudentsByCourseId(Integer id);
 
+    List<Student> getCourseById(Integer courseId);
+
 
 //    Student fetchAllocation(Integer id);
 

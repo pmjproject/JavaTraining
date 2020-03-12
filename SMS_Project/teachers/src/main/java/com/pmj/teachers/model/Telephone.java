@@ -13,6 +13,15 @@ public class Telephone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String number;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     @ManyToOne
     @JoinColumn
     @JsonIgnore

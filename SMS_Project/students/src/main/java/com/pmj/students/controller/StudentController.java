@@ -43,10 +43,16 @@ public class StudentController {
 //
 //        return studentService.fetchCourse(id);
 //    }
-    @RequestMapping("/student/{id}")
-    public List<Student> getStudentsByCourseId(@PathVariable Integer id){
-    return studentService.getStudentsByCourseId(id);
-}
+//    @RequestMapping("/student/{id}")
+//    public List<Student> getStudentsByCourseId(@PathVariable Integer id){
+//    return studentService.getStudentsByCourseId(id);
+//}
+
+    @GetMapping("/studentsC/{id}")
+    public List<Student> getCourseById(@PathVariable("id") Integer courseId){
+        System.out.println("kkkkkkkkkkkkkkkkkkkkk"+courseId);
+        return studentService.getCourseById(courseId);
+    }
 
 
 }

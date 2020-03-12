@@ -11,15 +11,16 @@ import java.util.Optional;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Integer> {
-    @Override
-    List<Course> findAll();
-
-    @Override
-    <S extends Course> S save(S s);
-
-    @Override
-    Optional<Course> findById(Integer integer);
+//    @Override
+//    List<Course> findAll();
+//
+//    @Override
+//    <S extends Course> S save(S s);
+//
+//    @Override
+//    Optional<Course> findById(Integer integer);
 
 
 //    List<Course> findByStudentID(Integer studentId);
+
 }

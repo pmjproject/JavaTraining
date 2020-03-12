@@ -97,4 +97,9 @@ public class StudentServiceImpl implements StudentService {
 
         return student;
     }
+
+    @Override
+    public List<Student> getCourseById(Integer courseId) {
+        return studentRepository.findByCourseId(courseId);
+    }
 }
