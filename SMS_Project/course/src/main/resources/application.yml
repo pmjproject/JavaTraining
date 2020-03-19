@@ -5,7 +5,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/courseDB?createDatabaseIfNotExist=true
     username: root
-    password: root
+    password:
   jpa:
     hibernate:
       ddl-auto: update

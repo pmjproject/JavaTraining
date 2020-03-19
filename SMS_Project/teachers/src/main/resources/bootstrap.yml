@@ -2,8 +2,11 @@ spring:
   application:
     name: teacher
 server:
-  port: 0
+  port: 8193
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}-${random.int}
+    hostname: localhost

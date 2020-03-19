@@ -1,9 +1,8 @@
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\model\Address.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\StudentsApplication.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\service\StudentServiceImpl.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\service\StudentService.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\repository\StudentRepository.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\controller\StudentController.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\model\Student.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\model\Telephone.java
-C:\Users\PMJ\Documents\SMS_Project\students\src\main\java\com\pmj\students\model\Course.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\model\Telephone.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\model\Address.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\controller\StudentController.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\model\Student.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\service\StudentServiceImpl.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\repository\StudentRepository.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\service\StudentService.java
+D:\SMS_Project\students\src\main\java\com\pmj\students\StudentsApplication.java

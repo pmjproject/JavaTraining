@@ -7,6 +7,17 @@ public class Teacher {
     private String lastName;
     private String email;
     private Integer age;
+    private Course getCoursesByIDTeacher;
+
+    public Integer getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(Integer courseID) {
+        this.courseID = courseID;
+    }
+
+    private Integer courseID;
 
     public Integer getId() {
         return id;
@@ -66,4 +77,13 @@ public class Teacher {
 
     private String dob;
     private String teacherCode;
+
+    public void setCourse(Course getCoursesByIDTeacher) {
+        this.getCoursesByIDTeacher = getCoursesByIDTeacher;
+
+    }
+
+//    public Integer getCourseId() {
+////        return
+//    }
 }

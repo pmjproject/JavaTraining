@@ -17,6 +17,17 @@ public class Teacher {
     private Integer age;
     private String dob;
     private String teacherCode;
+    private Integer courseID;
+
+    public Integer getCourseId() {
+        return courseID;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseID = courseID;
+    }
+
+
 
     public Integer getId() {
         return id;

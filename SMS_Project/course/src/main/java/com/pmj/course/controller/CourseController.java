@@ -51,9 +51,9 @@ public class CourseController {
         return courseService.fetchStudents(courseId);
     }
 
-    @GetMapping("courseTeacher/{courseId}")
-    public List<Teacher> fetchTeachers(@PathVariable Integer courseId){
-        return courseService.fetchTeachers(courseId);
+    @GetMapping("courseTeacher/{courseID}")
+    public List<Teacher> fetchTeachers(@PathVariable Integer courseID){
+        return courseService.fetchTeachers(courseID);
     }
 
 

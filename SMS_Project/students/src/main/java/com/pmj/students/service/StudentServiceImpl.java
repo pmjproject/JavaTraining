@@ -102,4 +102,20 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getCourseById(Integer courseId) {
         return studentRepository.findByCourseId(courseId);
     }
+
+    @Override
+    public String deleteS(Student newStudentData) {
+        String msg = null;
+        if (newStudentData.getId() != 0){
+
+
+            studentRepository.save(newStudentData);
+            msg = "Data Saved";
+            return msg;
+        }
+        else {
+            msg = "Error";
+            return msg;
+        }
+    }
 }

@@ -22,7 +22,9 @@ public interface CourseService {
 
     List<Student> fetchStudents(Integer courseId);
 
-    List<Teacher> fetchTeachers(Integer courseId);
+    List<Teacher> fetchTeachers(Integer courseID);
+
+    Course getCoursesByIDTeacher(Integer courseID);
 
 
 //    List<Course> getCourseByStudentId(Integer studentId);

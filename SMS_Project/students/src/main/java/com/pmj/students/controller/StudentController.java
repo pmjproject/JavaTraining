@@ -6,6 +6,7 @@ import com.pmj.students.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,11 @@ public class StudentController {
         return studentService.updateStudent(newStudentData);
 
     }
+    @PutMapping("/deleteS")
+    public String deleteS(@RequestBody Student newStudentData){
+        return studentService.deleteS(newStudentData);
+
+    }
 
     @GetMapping("/getStudent/{id}")
     public Student getStudentByID(@PathVariable Integer id){
@@ -50,7 +56,7 @@ public class StudentController {
 
     @GetMapping("/studentsC/{id}")
     public List<Student> getCourseById(@PathVariable("id") Integer courseId){
-        System.out.println("kkkkkkkkkkkkkkkkkkkkk"+courseId);
+        System.out.println("request came on "+ LocalDateTime.now() + "  ++++++++++++++++++++++");
         return studentService.getCourseById(courseId);
     }
 

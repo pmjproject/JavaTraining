@@ -18,6 +18,8 @@ public interface StudentService {
 
     List<Student> getCourseById(Integer courseId);
 
+    String deleteS(Student newStudentData);
+
 
 //    Student fetchAllocation(Integer id);
 

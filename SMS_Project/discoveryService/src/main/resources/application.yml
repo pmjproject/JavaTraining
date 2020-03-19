@@ -4,3 +4,14 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+zuul:
+  routes:
+    student:
+      path: /student/**
+      url: http://localhost:8192
+    teacher:
+      path: /teacher/**
+      url: http://localhost:8193
+    course:
+      path: /course/**
+      url: http://localhost:8191

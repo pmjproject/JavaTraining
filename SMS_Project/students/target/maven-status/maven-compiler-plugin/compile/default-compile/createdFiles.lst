@@ -6,4 +6,3 @@ com\pmj\students\controller\StudentController.class
 com\pmj\students\service\StudentService.class
 com\pmj\students\model\Address.class
 com\pmj\students\model\Student.class
-com\pmj\students\model\Course.class

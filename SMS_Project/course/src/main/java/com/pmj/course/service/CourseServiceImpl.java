@@ -5,6 +5,8 @@ import com.pmj.course.model.Student;
 import com.pmj.course.model.Teacher;
 import com.pmj.course.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -26,9 +28,10 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     RestTemplate restTemplate;
 
+    @LoadBalanced
     @Bean
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
+    public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
+        return builder.build();
     }
 
     @Override
@@ -86,7 +89,7 @@ public class CourseServiceImpl implements CourseService {
         HttpHeaders httpHeaders=new HttpHeaders();
         HttpEntity<String> httpEntity=new HttpEntity<>("",httpHeaders);
 
-        ResponseEntity<Student[]> result=restTemplate.exchange("http://172.22.99.20:37655/sms/studentsC/"+courseId,
+        ResponseEntity<Student[]> result=restTemplate.exchange("http://student/sms/studentsC/"+courseId,
                 HttpMethod.GET,httpEntity,Student[].class);
 
         Student[] resultBody = result.getBody();
@@ -100,21 +103,29 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<Teacher> fetchTeachers(Integer courseId) {
+    public List<Teacher> fetchTeachers(Integer courseID) {
         HttpHeaders httpHeaders=new HttpHeaders();
         HttpEntity<String> httpEntity=new HttpEntity<>("",httpHeaders);
 
-        ResponseEntity<Teacher[]> result=restTemplate.exchange("http://172.22.99.20:37655/smsT/teacherC/"+courseId,
+        ResponseEntity<Teacher[]> result=restTemplate.exchange("http://teacher/smsT/teacherC/"+courseID,
                 HttpMethod.GET,httpEntity,Teacher[].class);
 
         Teacher[] resultBody = result.getBody();
         List<Teacher> teachers = new ArrayList<>();
 
         for (Teacher teacher : resultBody) {
-            teacher.setCourse(this.getCoursesByIDTeacher(teacher.getCourseId()));
+            teacher.setCourse(this.getCoursesByIDTeacher(teacher.getCourseID()));
             teachers.add(teacher);
         }
         return teachers;
+    }
+
+    @Override
+    public Course getCoursesByIDTeacher(Integer courseID) {
+        Optional<Course> course = courseRepository.findById(courseID);
+        if (course.isPresent())
+            return course.get();
+        return null;
     }
 
 
