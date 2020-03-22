@@ -1,30 +1,30 @@
 
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Dashboard</title>
-
-  <!-- Custom fonts for this template-->
-  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fontawesome.com" rel="stylesheet">
-  <link href="https://fontawesome.com/license/free" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
   
+    <title>Dashboard</title>
   
-  <!-- Custom styles for this template-->
-  <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
-
-</head>
+    <!-- Custom fonts for this template-->
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fontawesome.com" rel="stylesheet">
+    <link href="https://fontawesome.com/license/free" rel="stylesheet">
+    
+    
+    <!-- Custom styles for this template-->
+    <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+  
+  </head>
 
 <body id="page-top">
 
@@ -32,59 +32,7 @@
   <div id="wrapper">
 
     
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3"><span style="font-size: 34px;">SMS</span></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/home">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span style="font-size: 19px;">Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/students">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span style="font-size: 19px;">Students</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/course">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span style="font-size: 19px;">Courses</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/teacher">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span style="font-size: 19px;">Teachers</span></a> 
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
+    <app-nav-bar></app-nav-bar>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -94,53 +42,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
+        <app-header></app-header>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -148,59 +50,69 @@
           <span style="font-size: 29px;">Add New Student</span>
           <br><br><br>
 
-          <form>
+          <form #addstudentsForm="ngForm">
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="validationDefault01">First name</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value=""
-                  required>
+                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="addstudents.firstName" placeholder="First name" value=""
+                  required #firstName="ngModel">
+                  <span class="text-danger" *ngIf="firstName.errors?.required && firstName.touched" >First Name is required</span>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationDefault02">Last name</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value=""
-                  required>
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="addstudents.lastName" placeholder="Last name" value=""
+                  required #lastName="ngModel">
+                  <span class="text-danger" *ngIf="lastName.errors?.required && lastName.touched">Last Name is required</span>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationDefaultUsername">Email</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend21">@</span>
+                    <span class="input-group-text" id="emailsss">@</span>
                   </div>
-                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="pj@gmail.com"
-                    aria-describedby="inputGroupPrepend21" required>
+                  <input type="text" class="form-control" id="email" name="email" [(ngModel)]="addstudents.email" placeholder="pj@gmail.com"
+                    aria-describedby="inputGroupPrepend21" required #email="ngModel">
+                    <span class="text-danger" *ngIf="email.errors?.required && email.touched">Email is required</span>
                 </div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="validationDefault03">Age</label>
-                <input type="text" class="form-control" id="validationDefault03" placeholder="Age" required>
+                <input type="text" class="form-control" id="age" name="age" [(ngModel)]="addstudents.age" placeholder="Age" required #age="ngModel">
+                <span class="text-danger" *ngIf="age.errors?.required && age.touched">Age is required</span>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="validationDefault04">Date of Birth</label>
-                <input type="date" class="form-control" id="validationDefault04" placeholder="State" required>
+                <input type="date" class="form-control" id="dob" name="dob" [(ngModel)]="addstudents.dob" placeholder="" required #dob="ngModel">
+                <span class="text-danger" *ngIf="dob.errors?.required && dob.touched">Date of Birth is required</span>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="validationDefault05">Course</label>
-                <input type="text" class="form-control" id="validationDefault05" placeholder="Course" required>
+                <input type="text" class="form-control" id="courseId" name="courseId" [(ngModel)]="addstudents.courseId" placeholder="Course" required #courseId="ngModel">
+                <span class="text-danger" *ngIf="courseId.errors?.required && courseId.touched">Course is required</span>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="validationDefault03">Address</label>
-                <input type="text" class="form-control" id="validationDefault03" placeholder="Address" required>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="addstudents.address" placeholder="Address" required #address="ngModel">
+                <span class="text-danger" *ngIf="address.errors?.required && address.touched">Address is required</span>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="validationDefault04">City</label>
-                <input type="text" class="form-control" id="validationDefault04" placeholder="City" required>
+                <input type="text" class="form-control" id="city" name="city" [(ngModel)]="addstudents.city" placeholder="City"  required #city="ngModel">
+                <span class="text-danger" *ngIf="city.errors?.required && city.touched">City is required</span>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="validationDefault05">Mobile</label>
-                <input type="text" class="form-control" id="validationDefault05" placeholder="Mobile" required>
+                <input type="text" class="form-control" id="number" name="number" [(ngModel)]="addstudents.number" placeholder="Mobile" required #number="ngModel">
+                <span class="text-danger" *ngIf="number.errors?.required && number.touched">Mobile is required</span>
               </div>
             </div>
             
-            <button class="btn btn-primary btn-sm" type="submit">Submit</button>
+            <button class="btn btn-primary btn-sm" type="submit" (click)="saveStudent()" [disabled]="!addstudentsForm.form.valid">Submit</button>&nbsp;
+            <button class="btn btn-primary btn-sm" type="reset">Reset</button>
           </form>
 
           
@@ -212,13 +124,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SMS 2020</span>
-          </div>
-        </div>
-      </footer>
+      <app-footer></app-footer>
       <!-- End of Footer -->
 
     </div>
@@ -271,5 +177,5 @@
 </body>
 
 </html>
-<!-- <router-outlet></router-outlet> -->
+
 

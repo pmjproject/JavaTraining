@@ -22,6 +22,17 @@ public class Student {
     private String studentCode;
     private Integer courseId;
 
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    private Boolean active;
+
+
     public String getStudentCode() {
         return studentCode;
     }

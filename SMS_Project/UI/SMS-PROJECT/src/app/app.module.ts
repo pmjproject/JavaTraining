@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,17 +16,14 @@ import { CourseComponent } from './components/course/course.component';
 import { AddstudentsComponent } from './components/addstudents/addstudents.component';
 import { AddcoursesComponent } from './components/addcourses/addcourses.component';
 import { AddteacherComponent } from './components/addteacher/addteacher.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddstudentsService } from './components/addstudents/addstudents.service';
 
 
 
 const appRoutes: Routes = [
-  { path: 'students', component: StudentsComponent },
-  { path: 'course', component: CourseComponent },
-  { path: 'teacher', component: TeacherComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'addstudents', component: AddstudentsComponent },
-  { path: 'addcourses', component: AddcoursesComponent },
-  { path: 'addteacher', component: AddteacherComponent }
+  
   
   
   
@@ -42,15 +40,19 @@ const appRoutes: Routes = [
     CourseComponent,
     AddstudentsComponent,
     AddcoursesComponent,
-    AddteacherComponent
+    AddteacherComponent,
+    HeaderComponent,
+    LoginComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   
-  providers: [],
+  providers: [AddstudentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
