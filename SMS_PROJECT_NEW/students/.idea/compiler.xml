@@ -6,16 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="discoveryService" />
+        <module name="course" />
+        <module name="teachers" />
         <module name="students" />
+        <module name="spring-boot-jwt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="course" target="1.8" />
+      <module name="discoveryService" target="1.8" />
+      <module name="spring-boot-jwt" target="1.8" />
       <module name="students" target="1.8" />
+      <module name="teachers" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="course" options="-parameters" />
+      <module name="discoveryService" options="-parameters" />
+      <module name="spring-boot-jwt" options="-parameters" />
       <module name="students" options="-parameters" />
+      <module name="teachers" options="-parameters" />
     </option>
   </component>
 </project>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../discoveryService/.mvn/.mvn.iml" filepath="$PROJECT_DIR$/../discoveryService/.mvn/.mvn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../discoveryService/src/main/main.iml" filepath="$PROJECT_DIR$/../discoveryService/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-jwt.iml" filepath="$PROJECT_DIR$/spring-boot-jwt.iml" />
       <module fileurl="file://$PROJECT_DIR$/../teachers/teachers.iml" filepath="$PROJECT_DIR$/../teachers/teachers.iml" />
     </modules>

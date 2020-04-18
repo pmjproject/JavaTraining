@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { Students } from 'src/app/students';
+
 // import { Observable } from 'rxjs';
 import { StudentsService } from 'src/app/students.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,13 +13,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class StudentsComponent implements OnInit {
 
   tableData : any;
+  filter;
+  p: number = 1;
 
   constructor(private studentsService:StudentsService,
    private router:Router,private route: ActivatedRoute) {
  
   }
 
-  updateDetails(data) {
+  details(data) {
     console.log(data)
  
    let id = data.id

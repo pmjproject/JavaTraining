@@ -11,6 +11,17 @@ public class Student {
     private Integer age;
     private String dob;
     private Course coursesByID;
+    private String studentCode;
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+
+    private String courseId;
 
     public Integer getId() {
         return id;
@@ -68,16 +79,13 @@ public class Student {
         this.studentCode = studentCode;
     }
 
-    public Integer getCourseId() {
-        return courseId;
-    }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
 
-    private String studentCode;
-    private Integer courseId;
+
+
+
+
+
 
     public void setCourse(Course coursesByID) {
         this.coursesByID = coursesByID;

@@ -1,37 +1,39 @@
 
 
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  
-    <title>Dashboard</title>
-  
-    <!-- Custom fonts for this template-->
-    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fontawesome.com" rel="stylesheet">
-    <link href="https://fontawesome.com/license/free" rel="stylesheet">
-    
-    
-    <!-- Custom styles for this template-->
-    <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
-  
-  </head>
+    <link href="https://fontawesome.com/license/free" rel="stylesheet"> -->
+
+
+  <!-- Custom styles for this template-->
+  <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+
+</head>
+
+
 <body id="page-top">
 
-  
+
   <div id="wrapper">
 
-    
     <app-nav-bar></app-nav-bar>
+
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -48,27 +50,71 @@
         <div class="container-fluid">
 
           <div style="margin-left: 1000px;"><button type="button" routerLink="/addcourses" class="btn btn-info"> + Course</button></div>
-          
+          <!-- <div style="margin-left: 1000px;"><button type="button" routerLink="/addteacher" class="btn btn-info"> + Teacher</button></div> -->
 
           <!-- Content Row -->
           <div class="row">
-            
-            <br>
 
+            <br>
+            <!-- <form [formGroup]="DetailsUpdate" (ngSubmit)="uploadSubmit()"> -->
             <!-- Earnings (Monthly) Card Example -->
-            <form action="/action_page.php">
-              <div class="form-group">
-                <label for="courseID">Course ID:</label>
-                <input type="courseID" class="form-control" id="courseID">
-              </div>
-              
-              
-              <button type="submit" class="btn btn-info">Search</button>
-            </form>
-            
+            <table>
+              <!-- <div class="form-group"> -->
+              <tr>
+                <td> 
+                  <input class="form-control" type="text" name="filter" placeholder="Search......." [(ngModel)]="filter">
+                 </td>
+             </tr>
+           </table>
+
+          </div><br><br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body" style=" overflow: scroll;  height: 350px;">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Course ID</th>
+                    <th style="text-align: center;">Course Name</th>
+                     <th style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                  <tr *ngFor="let data of tableData |filter:filter | paginate: { itemsPerPage: 6, currentPage: p }">
+
+
+                    <td style="text-align: center;">
+                      {{data.id}}
+                    </td>
+                    <td style="text-align: center;">
+                      {{data.course_name}}
+                    </td>
+                    
+                   
+                    
+                    <td style="text-align: center;">
+                      <button  class="btn btn-danger" (click)="deleteCourse(data)">Delete</button>
+                      
+                      <button type="button" class="btn btn-info" (click)="details(data)" style="margin-left: 10px"
+                        >Update</button>
+                        <button type="button" class="btn btn-info" (click)="detailsTeachers(data)" style="margin-left: 10px"
+                        >Teachers</button>
+                        <button type="button" class="btn btn-info" (click)="detailsStudents(data)" style="margin-left: 10px"
+                        >Students</button>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="p= $event"></pagination-controls>
+
+            </div>
           </div>
 
-          
+
 
         </div>
         <!-- /.container-fluid -->
@@ -92,7 +138,8 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

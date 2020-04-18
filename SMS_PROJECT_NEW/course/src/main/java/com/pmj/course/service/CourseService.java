@@ -20,11 +20,11 @@ public interface CourseService {
 
     Course getCoursesByID(Integer courseId);
 
-    List<Student> fetchStudents(Integer courseId);
+    List<Student> fetchStudents(String courseId);
 
-    List<Teacher> fetchTeachers(Integer courseID);
+    List<Teacher> fetchTeachers(String courseID);
 
-    Course getCoursesByIDTeacher(Integer courseID);
+    //Course getCoursesByIDTeacher(String courseID);
 
     String deleteC(Course newCourseData);
 

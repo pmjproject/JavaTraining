@@ -17,15 +17,30 @@ public class Teacher {
     private Integer age;
     private String dob;
     private String teacherCode;
-    private Integer courseID;
+    private String courseID;
 
-    public Integer getCourseID() {
+
+    public String getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(Integer courseID) {
+    public void setCourseID(String courseID) {
         this.courseID = courseID;
     }
+
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    private Boolean active;
+
+
+
 
 
     public Integer getId() {
@@ -103,6 +118,6 @@ public class Teacher {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,orphanRemoval=true)
     private List<Telephone> telephones;
 }

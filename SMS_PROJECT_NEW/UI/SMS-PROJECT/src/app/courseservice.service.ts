@@ -22,18 +22,37 @@ export class CourseserviceService {
     
     }
 
-    // saveCustomerOwnerDetails(customer){
-    //     return this.http.post(this.serverUrl +'/service/save',customer)
-    // }
+    
 
-    // saveRentDetails(rent){
-    //     return this.http.post(this.serverUrl + '/service/save',rent)
-    // }
-    // getAllCars(){
-    //     return this.http.get( this.serverUrl +'/service/findAllCars');
-    // }
-    // getOwners(){
-    //     return this.http.get( this.serverUrl2 +'/service/get')
-    // }
+    deleteCourse(data){  
+      // return this.http.delete(`${this.baseUrl}/deleteS`, { responseType: 'text' });  
+      return this.http.put(`${this.serverUrl}/deleteC`, data); 
+    }  
+    
+    
+    getCourse(id){
+      return this.http.get(this.serverUrl+`/getCourseByID/${id}`)
+    } 
+    
+    getCourseStudents(id){
+      return this.http.get(this.serverUrl+`/courseStudent/${id}`)
+    } 
+    getCourseTeachers(id){
+      return this.http.get(this.serverUrl+`/courseTeacher/${id}`)
+    } 
+    
+  
+    updateCourse(Data) {
+      console.log(Data)
+      return this.http.put(this.serverUrl + '/updateCourse', Data);
+    }
+  
+    
+  
+    getCourseList() {
+      return this.http.get(this.serverUrl + '/allCourse');
+    }
+
+    
 
 }

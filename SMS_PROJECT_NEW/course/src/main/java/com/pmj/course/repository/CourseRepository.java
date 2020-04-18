@@ -23,6 +23,8 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 //    Optional<Course> findById(Integer integer);
 
 
-//    List<Course> findByStudentID(Integer studentId);
+//    List<Course> findBycourseID(String courseID);
+
+   // Optional<Course> findBycourseID(String courseID);
 
 }

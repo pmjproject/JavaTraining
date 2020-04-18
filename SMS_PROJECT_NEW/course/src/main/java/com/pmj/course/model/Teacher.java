@@ -8,16 +8,22 @@ public class Teacher {
     private String email;
     private Integer age;
     private Course getCoursesByIDTeacher;
+        private String courseID;
 
-    public Integer getCourseID() {
+
+
+
+
+
+    public String getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(Integer courseID) {
+    public void setCourseID(String courseID) {
         this.courseID = courseID;
     }
 
-    private Integer courseID;
+
 
     public Integer getId() {
         return id;

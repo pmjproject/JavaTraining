@@ -14,11 +14,11 @@ public interface StudentService {
 
     String updateStudent(Student newStudentData);
 
-    Student findByID(Integer id);
+   List<Student>  findByID(Integer id);
 
-    List<Student> getStudentsByCourseId(Integer id);
+    List<Student> getStudentsByCourseId(String id);
 
-    List<Student> getCourseById(Integer courseId);
+    List<Student> getCourseById(String courseId);
 
     String deleteS(Student newStudentData);
 

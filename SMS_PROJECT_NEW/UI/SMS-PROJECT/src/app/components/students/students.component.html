@@ -60,9 +60,9 @@
             <table>
               <!-- <div class="form-group"> -->
               <tr>
-                <td> <label for="stdID">Student ID:</label></td>
-                <td><input type="text" formControlName="id" placeholder="Enter Student ID" class="form-control"></td>
-                <td><button type="button" class="btn btn-info" (click)="searchData(1)" >Search</button></td>
+                <!-- <td> <label for="stdID">Student ID:</label></td> -->
+                <td><input class="form-control" type="text" name="filter" placeholder="Search......." [(ngModel)]="filter"></td>
+                <!-- <td><button type="button" class="btn btn-info" (click)="searchData(1)" >Search</button></td> -->
               </tr>
               <!-- </div> -->
 
@@ -79,21 +79,21 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Student ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
+                    <th style="text-align: center;">Student ID</th>
+                    <th style="text-align: center;">First Name</th>
+                    <th style="text-align: center;">Last Name</th>
+                    <th style="text-align: center;">Email</th>
                     <!-- <th>Mobile</th> -->
                     <!-- <th>Address</th> -->
                     <!-- <th>Mobile</th> -->
-                    <th>Course</th>
-                    <th>Action</th>
+                    <th style="text-align: center;">Course</th>
+                    <th style="text-align: center;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                  
                   <tr *ngFor="
-                  let data of tableData
+                  let data of tableData |filter:filter | paginate: { itemsPerPage: 4, currentPage: p }
                       
               ">
 
@@ -119,12 +119,13 @@
                       <button (click)="deleteStudent(data)" class="btn btn-danger">Delete</button>
                       <!-- <button (click)="updateDetails(student)" class="btn btn-info">Update</button> -->
                       <button type="button" class="btn btn-info" style="margin-left: 10px"
-                        (click)="updateDetails(data)">Update</button>
+                        (click)="details(data)">Update</button>
                     </td>
 
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="p= $event"></pagination-controls>
 
             </div>
           </div>

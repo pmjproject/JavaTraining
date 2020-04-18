@@ -23,6 +23,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     public List<Student> findAll();
 
 
-    public List<Student> findByCourseId(Integer id);
+    public List<Student> findByCourseId(String id);
+
+    List<Student> findAllById(Integer id);
 
 }

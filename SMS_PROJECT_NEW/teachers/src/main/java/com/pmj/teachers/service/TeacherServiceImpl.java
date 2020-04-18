@@ -26,7 +26,7 @@ public class TeacherServiceImpl implements TeachersService {
         for (Telephone telephone: teacherData.getTelephones()){
             telephone.setTeacher(teacherData);
         }
-
+        teacherData.setActive(Boolean.TRUE);
         teacherRepository.save(teacherData);
         return " Data Saved";
     }
@@ -38,8 +38,9 @@ public class TeacherServiceImpl implements TeachersService {
             for (Telephone telephone: newTeacherData.getTelephones()){
                 telephone.setTeacher(newTeacherData);
             }
-
+            newTeacherData.setActive(Boolean.TRUE);
             teacherRepository.save(newTeacherData);
+
             msg = "Data Saved";
             return msg;
         }
@@ -50,15 +51,29 @@ public class TeacherServiceImpl implements TeachersService {
     }
 
     @Override
-    public Teacher findByID(Integer id) {
-        Optional<Teacher> teacher = teacherRepository.findById(id);
-        if (teacher.isPresent())
-            return teacher.get();
-        return new Teacher();
+    public List<Teacher> findByID(Integer id) {
+        return teacherRepository.findAllById(id);
     }
 
     @Override
-    public List<Teacher> getCourseById(Integer courseId) {
-        return teacherRepository.findByCourseID(courseId);
+    public List<Teacher> getCourseById(String courseId) {
+        List<Teacher> teachersLst =  teacherRepository.findByCourseID(courseId);
+        return teachersLst;
+    }
+
+    @Override
+    public String deleteT(Teacher newTeacherData) {
+        String msg = null;
+        if (newTeacherData.getId() != 0) {
+
+            newTeacherData.setActive(Boolean.FALSE);
+
+            teacherRepository.save(newTeacherData);
+            msg = "Data Deleted";
+            return msg;
+        } else {
+            msg = "Error";
+            return msg;
+        }
     }
 }

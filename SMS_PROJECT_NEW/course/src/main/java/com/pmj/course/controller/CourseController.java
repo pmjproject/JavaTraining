@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/smsC")
 public class CourseController {
@@ -47,12 +47,12 @@ public class CourseController {
 
 
     @GetMapping("courseStudent/{courseId}")
-    public List<Student> fetchStudents(@PathVariable Integer courseId){
+    public List<Student> fetchStudents(@PathVariable String courseId){
         return courseService.fetchStudents(courseId);
     }
 
     @GetMapping("courseTeacher/{courseID}")
-    public List<Teacher> fetchTeachers(@PathVariable Integer courseID){
+    public List<Teacher> fetchTeachers(@PathVariable String courseID){
         return courseService.fetchTeachers(courseID);
     }
 

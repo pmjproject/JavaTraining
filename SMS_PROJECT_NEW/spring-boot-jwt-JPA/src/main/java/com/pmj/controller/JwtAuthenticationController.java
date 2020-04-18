@@ -19,7 +19,7 @@ import com.pmj.config.JwtTokenUtil;
 import com.pmj.model.JwtRequest;
 import com.pmj.model.JwtResponse;
 import com.pmj.model.UserDTO;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 public class JwtAuthenticationController {
 

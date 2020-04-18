@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../course/course.iml" filepath="$PROJECT_DIR$/../course/course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../discoveryService/discoveryService.iml" filepath="$PROJECT_DIR$/../discoveryService/discoveryService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-boot-jwt-JPA/spring-boot-jwt.iml" filepath="$PROJECT_DIR$/../spring-boot-jwt-JPA/spring-boot-jwt.iml" />
       <module fileurl="file://$PROJECT_DIR$/students.iml" filepath="$PROJECT_DIR$/students.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../teachers/teachers.iml" filepath="$PROJECT_DIR$/../teachers/teachers.iml" />
     </modules>
   </component>
 </project>

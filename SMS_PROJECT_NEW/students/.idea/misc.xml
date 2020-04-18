@@ -4,6 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../discoveryService/pom.xml" />
+        <option value="$PROJECT_DIR$/../course/pom.xml" />
+        <option value="$PROJECT_DIR$/../teachers/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-jwt-JPA/pom.xml" />
       </list>
     </option>
   </component>

@@ -85,7 +85,7 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,orphanRemoval=true)
     private List<Telephone> telephones;
 
     public List<Telephone> getTelephones() {

@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Entity
 
 public class Telephone {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String number;
+    private String number2;
     @ManyToOne
     @JoinColumn
     @JsonIgnore
@@ -26,6 +26,11 @@ public class Telephone {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
     public String getNumber() {
         return number;
     }
@@ -37,4 +42,14 @@ public class Telephone {
     public void setNumber(String number) {
         this.number = number;
     }
+
+
+    public String getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(String number2) {
+        this.number2 = number2;
+    }
+
 }

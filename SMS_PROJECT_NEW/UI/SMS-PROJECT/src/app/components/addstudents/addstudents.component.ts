@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { StudentsService } from '../../students.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CourseserviceService } from 'src/app/courseservice.service';
 // import { Students } from '../../students';
 
 
@@ -11,70 +13,125 @@ import { Router } from '@angular/router';
   styleUrls: ['./addstudents.component.scss']
 })
 export class AddstudentsComponent implements OnInit {
- 
-  firstName: string;
-  lastName: string;
-  email: string;
-   age: string;
-  dob: string;
-   courseId: string;
-   active: string;
-   city:string;
-   address:string;	
-   number: string;
 
-   data:any[];
-  // students: Students = new Students();
-  // submitted = false;
+  studentDetailsregistration: FormGroup;
+  submitted = false;
+  imageUrl: any;
 
-  constructor(private studentsService:StudentsService) { }
+
+  private data: any[];
+  Course : any;
+
+  
+  
   
 
-  ngOnInit(){
-    // this.addstudents = new Addstudents(0,"", "", "", 0, "", 0, false,"","","");
+  constructor(private studentsService: StudentsService,
+    private formBuilder: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private courseserviceService:CourseserviceService
+  ) {
+    this.studentsService = studentsService;
   }
-  // newStudent(): void {
-  //   this.submitted = false;
-  //   this.students = new Students();
-  // }
-  // saveStudent(): void{
-  //   console.log(this.addstudents);
-  //   this.addstudentsService.saveStudent(this.addstudents).subscribe(addstudents => this.addstudents = addstudents);
-  //   // console.log("Saved Successfully");
-    
-  // }
 
-  save() {
-    var students ={
+  
+
     
-    "firstName": this.firstName,
-    "lastName": this.lastName,
-    "email": this.email,
-    "age": this.age,
-    "dob":this.dob,
-    "courseId": this.courseId,
-    "active": this.active,
-    
-    "address": {
-      "city":this.city,
-      "address": this.address
+
+  ngOnInit() {
+    this.studentDetailsregistration = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      age: ['', Validators.required],
+      dob: ['', Validators.required],
+      courseId: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      number: ['', Validators.required],
+      number2: ['', Validators.required]
       
-    },
-    "telephones": [
-      {"number":this.number}
-     
-    ]
-
-    };
-    this.studentsService.Addstudents(students).subscribe(
-      (data: any[]) => this.data = data,
-      // (alert) => ("gfgfgg")
-
-      (error) => console.log("error")
-      );
-     
+    })
+    this.reloadData();
+    // this.getOwners();
+    
   }
 
- 
+  reloadData() {
+    this.courseserviceService.getCourseList()
+   .subscribe(
+     response=>{
+       console.log(response);
+       this.Course = response;
+     },
+     error=>{
+       console.log(error);
+     }
+   )
+}
+  
+
+  
+  get controlerData() {
+    return this.studentDetailsregistration.controls;
+  }
+
+
+  
+
+  uploadSubmit() {
+    this.submitted = true;
+
+    if (this.studentDetailsregistration.valid) {
+      let studentData = {
+        "firstName": this.controlerData.firstName.value,
+        "lastName": this.controlerData.lastName.value,
+        "email": this.controlerData.email.value,
+        "age": this.controlerData.age.value,
+        "dob": this.controlerData.dob.value,
+        "courseId": this.controlerData.courseId.value,
+        "address": {
+          "city":this.controlerData.city.value,
+          "address": this.controlerData.address.value
+          
+        },
+        "telephones": [
+          {"number":this.controlerData.number.value},
+          {"number2":this.controlerData.number2.value}
+          
+         
+        ]
+        
+        
+        
+
+
+        
+      }
+      console.log('SUBMIT');
+      console.log(studentData);
+      
+
+
+      //passing to service
+      this.studentsService.Addstudents(studentData)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.submitted = false;
+            this.studentDetailsregistration.reset();
+          },
+          error => {
+            console.log(error);
+            return;
+          }
+        )
+
+    } else {
+      return;
+    }
+
+
+  }
 
 }

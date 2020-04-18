@@ -1,6 +1,6 @@
 
 
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,59 +50,119 @@
           <span style="font-size: 29px;">Add New Teacher</span>
           <br><br><br>
 
-          <form>
+          <form [formGroup]="teacherDetailsregistration" (ngSubmit)="uploadSubmit()">
             <div class="form-row">
               <div class="col-md-4 mb-3">
-                <label for="validationDefault01">First name</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value=""
-                  required>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="validationDefault02">Last name</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value=""
-                  required>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="validationDefaultUsername">Email</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend21">@</span>
+               
+              <div class="form-group">
+                    <label for="validationDefault01">First name</label>
+                    <input type="text" class="form-control" formControlName ="firstName"  placeholder="Enter First name" [ngClass]="{ 'is-invalid': submitted && controlerData.firstName.errors }"/>
+                    <div *ngIf="submitted && controlerData.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="controlerData.firstName.errors.required">First name is required</div>
                   </div>
-                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="pj@gmail.com"
-                    aria-describedby="inputGroupPrepend21" required>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Last name</label>
+                  <input type="text" class="form-control" formControlName ="lastName"  placeholder="Enter Last name" [ngClass]="{ 'is-invalid': submitted && controlerData.lastName.errors }"/>
+                  <div *ngIf="submitted && controlerData.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.lastName.errors.required">Last name is required</div>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Email</label>
+                  <input type="text" class="form-control" formControlName ="email"  placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && controlerData.email.errors }"/>
+                  <div *ngIf="submitted && controlerData.email.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.email.errors.required">Email is required</div>
+                </div>
                 </div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-3">
-                <label for="validationDefault03">Age</label>
-                <input type="text" class="form-control" id="validationDefault03" placeholder="Age" required>
+               
+                <div class="form-group">
+                  <label for="validationDefault01">Age</label>
+                  <input type="text" class="form-control" formControlName ="age"  placeholder="Enter Age" [ngClass]="{ 'is-invalid': submitted && controlerData.age.errors }"/>
+                  <div *ngIf="submitted && controlerData.age.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.age.errors.required">Age is required</div>
+                </div>
+                </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="validationDefault04">Date of Birth</label>
-                <input type="date" class="form-control" id="validationDefault04" placeholder="State" required>
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Date of Birth</label>
+                  <input type="date" class="form-control" formControlName ="dob"  placeholder="Enter Date of Birth" [ngClass]="{ 'is-invalid': submitted && controlerData.dob.errors }"/>
+                  <div *ngIf="submitted && controlerData.dob.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.dob.errors.required">Date of Birth is required</div>
+                </div>
+                </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="validationDefault05">Course</label>
-                <input type="text" class="form-control" id="validationDefault05" placeholder="Course" required>
-              </div>
+               
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Course</label>
+                  
+                <select class="form-control" formControlName="courseWithID" #data [ngClass]="{ 'is-invalid': submitted && controlerData.courseWithID.errors }">
+                  <option>Select Course</option>       
+                  <option *ngFor="let data of Course">{{data.course_name}}</option>
+                </select>
+                <div *ngIf="submitted && controlerData.courseWithID.errors" class="invalid-feedback">
+                  <div *ngIf="controlerData.courseWithID.errors.required">Select Course</div>
+                </div> 
+                </div>
+                
+            </div>
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-3">
-                <label for="validationDefault03">Address</label>
-                <input type="text" class="form-control" id="validationDefault03" placeholder="Address" required>
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Address</label>
+                  <input type="text" class="form-control" formControlName ="address"  placeholder="Enter Address" [ngClass]="{ 'is-invalid': submitted && controlerData.address.errors }"/>
+                  <div *ngIf="submitted && controlerData.address.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.address.errors.required">Address is required</div>
+                </div>
+                </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="validationDefault04">City</label>
-                <input type="text" class="form-control" id="validationDefault04" placeholder="City" required>
+                
+                <div class="form-group">
+                  <label for="validationDefault01">City</label>
+                  <input type="text" class="form-control" formControlName ="city"  placeholder="Enter City" [ngClass]="{ 'is-invalid': submitted && controlerData.city.errors }"/>
+                  <div *ngIf="submitted && controlerData.city.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.city.errors.required">City is required</div>
+                </div>
+                </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="validationDefault05">Mobile</label>
-                <input type="text" class="form-control" id="validationDefault05" placeholder="Mobile" required>
+                
+                <div class="form-group">
+                  <label for="validationDefault01">Mobile</label>
+                  <input type="text" class="form-control" formControlName ="number"  placeholder="Enter Mobile 01" [ngClass]="{ 'is-invalid': submitted && controlerData.number.errors }"/>
+                  <div *ngIf="submitted && controlerData.number.errors" class="invalid-feedback">
+                    <div *ngIf="controlerData.number.errors.required">Mobile 01 is required</div>
+                </div>
+                </div>
+                <div class="form-group">
+                
+                  <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
+                 
+                    
+                
+                </div>
               </div>
             </div>
             
-            <button class="btn btn-primary btn-sm" type="submit">Submit</button>
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>&nbsp;&nbsp;
+            <button class="btn btn-primary btn-sm" type="reset">Reset</button>
           </form>
 
           
@@ -148,21 +208,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+  <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <!-- <script src="js/sb-admin-2.min.js"></script> -->
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <!-- <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script> -->
 
 </body>
 

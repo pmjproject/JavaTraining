@@ -45,10 +45,16 @@ public class StudentServiceImpl implements StudentService {
     public String updateStudent(Student newStudentData) {
         String msg = null;
         if (newStudentData.getId() != 0) {
-            for (Telephone telephone : newStudentData.getTelephones()) {
-                telephone.setStudent(newStudentData);
-            }
+
+                for (Telephone telephone : newStudentData.getTelephones()) {
+                    telephone.setStudent(newStudentData);
+
+                }
+
+
+
             newStudentData.setActive(Boolean.TRUE);
+
             studentRepository.save(newStudentData);
             msg = "Data Updated";
             return msg;
@@ -59,12 +65,18 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findByID(Integer id) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent())
-            return student.get();
-        return new Student();
+    public List<Student> findByID(Integer id) {
+        return studentRepository.findAllById(id);
     }
+
+    //    @Override
+//    public Student findByID(Integer id) {
+//        Optional<Student> student = studentRepository.findById(id);
+//        if (student.isPresent())
+//            return student.get();
+//        return new Student();
+//    }
+
 
 //    @Override
 //    public Student findById(Integer id) {
@@ -94,14 +106,14 @@ public class StudentServiceImpl implements StudentService {
 //    }
 
     @Override
-    public List<Student> getStudentsByCourseId(Integer id) {
+    public List<Student> getStudentsByCourseId(String id) {
         List<Student> student = studentRepository.findByCourseId(id);
 
         return student;
     }
 
     @Override
-    public List<Student> getCourseById(Integer courseId) {
+    public List<Student> getCourseById(String courseId) {
         return studentRepository.findByCourseId(courseId);
     }
 

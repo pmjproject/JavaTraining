@@ -21,6 +21,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { UpdatestudentsComponent } from './components/updatestudents/updatestudents.component';
 import { SearchstudentsComponent } from './components/searchstudents/searchstudents.component';
+import { UpdateTeachersComponent } from './components/update-teachers/update-teachers.component';
+import { UpdatecourseComponent } from './components/updatecourse/updatecourse.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { StudentcourseComponent } from './components/studentcourse/studentcourse.component';
+import { TeachercourseComponent } from './components/teachercourse/teachercourse.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -49,6 +56,11 @@ const appRoutes: Routes = [
     AddstudentsComponent,
     UpdatestudentsComponent,
     SearchstudentsComponent,
+    UpdateTeachersComponent,
+    UpdatecourseComponent,
+    StudentcourseComponent,
+    TeachercourseComponent,
+    LogoutComponent,
     
     
 
@@ -59,7 +71,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   
   providers: [],

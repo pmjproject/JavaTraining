@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.router.navigate(['/home'])
         this.invalidLogin = false
+        alert("Login is successfully")
       },
       error => {
         this.invalidLogin = true

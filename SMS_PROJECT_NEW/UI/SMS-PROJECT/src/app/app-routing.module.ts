@@ -10,21 +10,36 @@ import { AddteacherComponent } from './components/addteacher/addteacher.componen
 import { UpdatestudentsComponent } from './components/updatestudents/updatestudents.component';
 import { SearchstudentsComponent } from './components/searchstudents/searchstudents.component';
 import { LoginComponent } from './components/login/login.component';
+import { UpdateTeachersComponent } from './components/update-teachers/update-teachers.component';
+import { UpdatecourseComponent } from './components/updatecourse/updatecourse.component';
+import { TeachercourseComponent } from './components/teachercourse/teachercourse.component';
+import { StudentcourseComponent } from './components/studentcourse/studentcourse.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthGaurdService } from './auth-gaurd.service';
+
+
 
 
 const routes: Routes = [
-{ path: 'students', component: StudentsComponent },
+{ path: 'students', component: StudentsComponent,canActivate:[AuthGaurdService] },
 { path: 'login', component: LoginComponent },
-{ path: 'course', component: CourseComponent },
-{ path: 'teacher', component: TeacherComponent },
-{ path: 'home', component: HomeComponent },
-{ path: 'addstudents', component: AddstudentsComponent },
-{ path: 'addcourses', component: AddcoursesComponent },
+{ path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
+{ path: 'course', component: CourseComponent, canActivate:[AuthGaurdService] },
+{ path: 'teacher', component: TeacherComponent,canActivate:[AuthGaurdService] },
+{ path: 'home', component: HomeComponent ,canActivate:[AuthGaurdService]},
+{ path: 'addstudents', component: AddstudentsComponent ,canActivate:[AuthGaurdService]},
+{ path: 'addcourses', component: AddcoursesComponent,canActivate:[AuthGaurdService] },
 
-{path:'updatestudents/:id', component:UpdatestudentsComponent},
-{path:'searchstudents/:id', component:SearchstudentsComponent},
+{path:'updatestudents/:id', component:UpdatestudentsComponent,canActivate:[AuthGaurdService]},
+{path:'update-teachers/:id', component:UpdateTeachersComponent,canActivate:[AuthGaurdService]},
 
-{ path: 'addteacher', component: AddteacherComponent }];
+{path:'updatecourse/:id', component:UpdatecourseComponent,canActivate:[AuthGaurdService]},
+{path:'Studentcourse/:id', component:StudentcourseComponent,canActivate:[AuthGaurdService]},
+{path:'Teachercourse/:id', component:TeachercourseComponent,canActivate:[AuthGaurdService]},
+
+{path:'searchstudents/:id', component:SearchstudentsComponent,canActivate:[AuthGaurdService]},
+
+{ path: 'addteacher', component: AddteacherComponent,canActivate:[AuthGaurdService] }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/sms")
 public class StudentController {
@@ -28,7 +29,7 @@ public class StudentController {
 
     }
 
-    @PutMapping("/updateStudent/{id}")
+    @PutMapping("/updateStudent")
     public String updateStudent(@RequestBody Student newStudentData){
         return studentService.updateStudent(newStudentData);
 
@@ -41,11 +42,15 @@ public class StudentController {
 
     }
 
-    @GetMapping("/getStudent/{id}")
-    public Student getStudentByID(@PathVariable Integer id){
-        return studentService.findByID(id);
-    }
+//    @GetMapping("/getStudent/{id}")
+//    public Student getStudentByID(@PathVariable Integer id){
+//        return studentService.findByID(id);
+//    }
 
+    @GetMapping("/getStudent/{id}")
+    public  List<Student> getStudentByID(@PathVariable("id") Integer studentId){
+        return studentService.findByID(studentId);
+    }
 
 //    @RequestMapping("/student/course/{id}")
 //    public Student getFetchAllCourse(@PathVariable Integer id) {
@@ -58,7 +63,7 @@ public class StudentController {
 //}
 
     @GetMapping("/studentsC/{id}")
-    public List<Student> getCourseById(@PathVariable("id") Integer courseId){
+    public List<Student> getCourseById(@PathVariable("id") String courseId){
         System.out.println("request came on "+ LocalDateTime.now() + "  ++++++++++++++++++++++");
         return studentService.getCourseById(courseId);
     }

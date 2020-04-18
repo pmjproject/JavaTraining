@@ -48,11 +48,12 @@
                 <span style="font-size: 29px;">Update Student</span>
                 <br><br><br>
 
-                <form formGroup="detailsEdit" (ngSubmit)="uploadSubmit()">
+                <form [formGroup]="detailsEdit" (ngSubmit)="uploadSubmit()">
                     <div class="form-content">
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4 mb-3">
                           <div class="form-group">
+                            <label for="validationDefault01">First Name</label>
                             <input type="text" class="form-control" formControlName="firstName"
                               placeholder="Enter First Name" [ngClass]="{ 'is-invalid':
                               submitted && controlerData.firstName.errors }" />
@@ -62,8 +63,9 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4 mb-3">
                           <div class="form-group">
+                            <label for="validationDefault02">Last Name</label>
                             <input type="text" class="form-control" formControlName="lastName"
                               placeholder="Enter Last Name" [ngClass]="{ 'is-invalid':
                               submitted && controlerData.lastName.errors }" />
@@ -73,8 +75,9 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4 mb-3">
                             <div class="form-group">
+                              <label for="validationDefaultUsername">Email</label>
                               <input type="text" class="form-control" formControlName="email"
                                 placeholder="Enter email" [ngClass]="{ 'is-invalid':
                                 submitted && controlerData.email.errors }" />
@@ -106,8 +109,9 @@
                         </div>
                       </div> -->
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                           <div class="form-group">
+                            <label for="validationDefault03">Age</label>
                             <input type="text" class="form-control" formControlName="age"
                               placeholder="Enter Age" [ngClass]="{ 'is-invalid':
                               submitted && controlerData.age.errors }" />
@@ -117,7 +121,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <!-- <div class="col-md-4">
                           <div class="form-group">
                             <input type="text" class="form-control" formControlName="modelYear"
                               placeholder="Enter Model Year" [ngClass]="{ 'is-invalid':
@@ -127,13 +131,14 @@
                               <div *ngIf="controlerData.registerdYear.errors.required">Model
                                 Year is Required</div>
                             </div>
-                          </div>
-                        </div>
+                          </div> 
+                        </div>-->
               
               
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                           <div class="form-group">
-                            <input type="text" class="form-control" formControlName="dob"
+                            <label for="validationDefault04">Date of Birth</label>
+                            <input type="date" class="form-control" formControlName="dob"
                               placeholder="Enter Date of Birth" [ngClass]="{ 'is-invalid':
                               submitted && controlerData.dob.errors }" />
                             <div *ngIf="submitted && controlerData.dob.errors"
@@ -143,28 +148,33 @@
                             </div>
                           </div>
                         </div>
+                        <div class="col-md-4 mb-3">
+                          
+
+                          <div class="form-group">
+                            <label for="validationDefault01">Course</label>
+                            
+                          <select class="form-control" formControlName="courseId" #data [ngClass]="{ 'is-invalid': submitted && controlerData.courseId.errors }">
+                            <option>Select Course</option>         
+                            <option *ngFor="let data of Course">{{data.course_name}}</option>
+                          </select>
+                          <div *ngIf="submitted && controlerData.courseId.errors" class="invalid-feedback">
+                            <div *ngIf="controlerData.courseId.errors.required">Select Course</div>
+                          </div> 
+                          </div>
+                        </div>
               
               
                       </div>
               
                       <div class="row">
                         
-                        <div class="col-md-4">
-                            <div class="form-group">
-                              <input type="text" class="form-control" formControlName="courseId"
-                                placeholder="Enter CourseId" [ngClass]="{ 'is-invalid':
-                                submitted && controlerData.courseId.errors }" />
-                              <div *ngIf="submitted && controlerData.courseId.errors"
-                                class="invalid-feedback">
-                                <div *ngIf="controlerData.courseId.errors.required">CourseId is
-                                  Required</div>
-                              </div>
-                            </div>
-                          </div>
+                        
               
               
-                          <div class="col-md-4">
+                          <div class="col-md-4 mb-3">
                             <div class="form-group">
+                              <label for="validationDefault03">Address</label>
                               <input type="text" class="form-control" formControlName="address"
                                 placeholder="Enter Address" [ngClass]="{ 'is-invalid':
                                 submitted && controlerData.address.errors }" />
@@ -176,7 +186,8 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4">
+                          <div class="col-md-4 mb-3">
+                            <label for="validationDefault04">City</label>
                             <div class="form-group">
                               <input type="text" class="form-control" formControlName="city"
                                 placeholder="Enter City" [ngClass]="{ 'is-invalid':
@@ -199,7 +210,8 @@
                         </div>
                                 <br> -->
                       <div class="row">
-                         <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
+                          <label for="validationDefault05">Mobile</label>
                             <div class="form-group">
                               <input type="text" class="form-control" formControlName="number"
                                 placeholder="Enter Mobile No" [ngClass]="{ 'is-invalid':
@@ -210,11 +222,18 @@
                                   Required</div>
                               </div>
                             </div>
+                            <div class="form-group">
+                
+                              <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
+                             
+                                
+                            
+                            </div>
                           </div>
               
                       </div>
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <button type="submit" class="btn btn-info">Update</button>
                          </div>
              

@@ -3,6 +3,7 @@ import { StudentsService } from 'src/app/students.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CourseserviceService } from 'src/app/courseservice.service';
 
 
 @Component({
@@ -15,12 +16,15 @@ export class UpdatestudentsComponent implements OnInit {
   id:any;
   detailsEdit:FormGroup;
   submitted = false;
-  // selectValue:any;
+  
+  selectValue:any;
+  Course : any;
   // fuleType=['Diesel','Petrol','Hibrid'];
   constructor(
     private route: ActivatedRoute,
     private studentsService:StudentsService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private courseserviceService:CourseserviceService
     
   ) { }
 
@@ -36,33 +40,51 @@ export class UpdatestudentsComponent implements OnInit {
       courseId: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
-      number: ['', Validators.required]
+      number: ['', Validators.required],
+      number2: ['', Validators.required]
       
     });
     this.displayValueForm()
-
+    this.reloadData();
 
   }
+  reloadData() {
+    this.courseserviceService.getCourseList()
+   .subscribe(
+     response=>{
+       console.log(response);
+       this.Course = response;
+     },
+     error=>{
+       console.log(error);
+     }
+   )
+}
 
   displayValueForm() {
     //get accutale route id 
    this.id = (this.route.snapshot.paramMap.get('id'));
+   
    console.log(this.id);
  
     
     this.studentsService.getStudent(this.id)
     .subscribe(
       data=>{
-      
+        console.log(data)
        this.detailsEdit.controls['firstName'].setValue(data[0].firstName);
+       
        this.detailsEdit.controls['lastName'].setValue(data[0].lastName);
        this.detailsEdit.controls['email'].setValue(data[0].email);
        this.detailsEdit.controls['age'].setValue(data[0].age);
        this.detailsEdit.controls['dob'].setValue(data[0].dob);
-       this.detailsEdit.controls['courseId'].setValue(data[0].courseId);
+      //  this.detailsEdit.controls['courseId'].setValue(data[0].courseId);
+       
        this.detailsEdit.controls['address'].setValue(data[0].address.address);
        this.detailsEdit.controls['city'].setValue(data[0].address.city);
-       this.detailsEdit.controls['number'].setValue(data[0].telephones.number);
+       this.detailsEdit.controls['number'].setValue(data[0].telephones[0].number);
+       this.detailsEdit.controls['number2'].setValue(data[0].telephones[1].number2);
+       this.detailsEdit.controls['courseId'].setValue(data[0].courseId);
        
       },
       error=>{
@@ -104,7 +126,8 @@ export class UpdatestudentsComponent implements OnInit {
              
             },
             "telephones": [
-              {"number":this.controlerData.number.value}
+              {"number":this.controlerData.number.value},
+              {"number2":this.controlerData.number2.value}
              
             ]
             

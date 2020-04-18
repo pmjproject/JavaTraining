@@ -13,7 +13,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" routerLink="/home">
+    <a class="nav-link" *ngIf="loginservice.isUserLoggedIn()" routerLink="/home">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span style="font-size: 19px;">Dashboard</span></a>
   </li>
@@ -21,7 +21,7 @@
   <!-- Divider -->
   <hr class="sidebar-divider">
   <li class="nav-item active">
-    <a class="nav-link" routerLink="/students">
+    <a class="nav-link" *ngIf="loginservice.isUserLoggedIn()" routerLink="/students">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span style="font-size: 19px;">Students</span></a>
   </li>
@@ -29,7 +29,7 @@
   <!-- Divider -->
   <hr class="sidebar-divider">
   <li class="nav-item active">
-    <a class="nav-link" routerLink="/course">
+    <a class="nav-link" *ngIf="loginservice.isUserLoggedIn()" routerLink="/course">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span style="font-size: 19px;">Courses</span></a>
   </li>
@@ -37,7 +37,7 @@
   <!-- Divider -->
   <hr class="sidebar-divider">
   <li class="nav-item active">
-    <a class="nav-link" routerLink="/teacher">
+    <a class="nav-link" *ngIf="loginservice.isUserLoggedIn()" routerLink="/teacher">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span style="font-size: 19px;">Teachers</span></a> 
   </li>
