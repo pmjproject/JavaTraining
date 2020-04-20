@@ -1,23 +1,42 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          
+
+  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <!-- <select>
+      <option>Settings</option>       
+      <option><a class="nav-link dropdown-toggle"  *ngIf="loginservice.isUserLoggedIn()" routerLink="/logout">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
+        <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+      </a></option>
+      <option><a class="dropdown-item" *ngIf="loginservice.isUserLoggedIn()" routerLink="/profile">
+        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+        Profile
+      </a></option>
+    </select>     -->
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
       <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-      
-
-      
+     
       <!-- Nav Item - User Information -->
-      <li>
-        <!-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-          <a class="nav-link" *ngIf="loginservice.isUserLoggedIn()" routerLink="/logout">
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle"  *ngIf="loginservice.isUserLoggedIn()" routerLink="/logout">
           <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
-          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+          
         </a>
-        <!-- Dropdown - User Information -->
+        </li>
         
+        <li class="nav-item dropdown no-arrow">
+       
+          <button type="button" class="btn btn-warning" (click)="details()" style="margin-right: 25px; margin-top: 15px;"
+                        >Profile</button>
+           
+         
+        
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
       </li>
 
     </ul>

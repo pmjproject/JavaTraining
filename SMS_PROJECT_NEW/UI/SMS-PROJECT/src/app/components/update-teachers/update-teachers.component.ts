@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherserviceService } from 'src/app/teacherservice.service';
 import { CourseserviceService } from 'src/app/courseservice.service';
 
@@ -21,7 +21,8 @@ export class UpdateTeachersComponent implements OnInit {
     private route: ActivatedRoute,
     private teacherserviceService:TeacherserviceService,
     private formBuilder:FormBuilder,
-    private courseserviceService:CourseserviceService
+    private courseserviceService:CourseserviceService,
+    private router:Router
     
   ) { }
 
@@ -144,6 +145,8 @@ export class UpdateTeachersComponent implements OnInit {
                 return;
               }
             )
+            alert("Updated")
+            this.router.navigate(['teacher']);
     
         } else {
           return;

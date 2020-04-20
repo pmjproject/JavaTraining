@@ -29,7 +29,8 @@ export class AddstudentsComponent implements OnInit {
   constructor(private studentsService: StudentsService,
     private formBuilder: FormBuilder,
     private cd: ChangeDetectorRef,
-    private courseserviceService:CourseserviceService
+    private courseserviceService:CourseserviceService,
+    private router:Router
   ) {
     this.studentsService = studentsService;
   }
@@ -120,12 +121,15 @@ export class AddstudentsComponent implements OnInit {
             console.log(response);
             this.submitted = false;
             this.studentDetailsregistration.reset();
+           
           },
           error => {
             console.log(error);
             return;
           }
         )
+        alert("Submitted");
+        this.router.navigate(['students']);
 
     } else {
       return;

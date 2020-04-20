@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseserviceService } from 'src/app/courseservice.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class UpdatecourseComponent implements OnInit {
 
  
   id:any;
+  
+
   detailsEdit:FormGroup;
   submitted = false;
   // selectValue:any;
@@ -19,7 +21,8 @@ export class UpdatecourseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private courseserviceService:CourseserviceService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private router:Router
     
   ) { }
 
@@ -47,7 +50,7 @@ export class UpdatecourseComponent implements OnInit {
     .subscribe(
       data=>{
         console.log(data)
-       this.detailsEdit.controls['course_name'].setValue(data[0].course_name);
+       this.detailsEdit.controls['course_name'].setValue(data.course_name);
        
        
        
@@ -99,7 +102,8 @@ export class UpdatecourseComponent implements OnInit {
                 return;
               }
             )
-    
+            alert("Updated")
+            this.router.navigate(['course']);
         } else {
           return;
         }

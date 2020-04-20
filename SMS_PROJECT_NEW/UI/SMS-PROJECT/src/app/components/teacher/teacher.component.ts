@@ -76,6 +76,8 @@ export class TeacherComponent implements OnInit {
           
         },
         error => console.log(error));
+        alert("Deleted")
+        this.reloadData();
   }
  
  }

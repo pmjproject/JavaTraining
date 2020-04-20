@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TeacherserviceService } from 'src/app/teacherservice.service';
 import { CourseserviceService } from 'src/app/courseservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addteacher',
@@ -23,7 +24,8 @@ export class AddteacherComponent implements OnInit {
   constructor(private teacherserviceService: TeacherserviceService,
     private formBuilder: FormBuilder,
     private cd: ChangeDetectorRef,
-    private courseserviceService:CourseserviceService
+    private courseserviceService:CourseserviceService,
+    private router:Router
   ) {
     this.teacherserviceService = teacherserviceService;
   }
@@ -117,7 +119,8 @@ export class AddteacherComponent implements OnInit {
             return;
           }
         )
-
+        alert("Submitted");
+        this.router.navigate(['teacher']);
     } else {
       return;
     }

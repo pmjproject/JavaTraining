@@ -44,8 +44,8 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-
-                <span style="font-size: 29px;">Update Student</span>
+                <div class="container-fluid">
+                <span style="font-size: 20px;">UPDATE STUDENT</span>
                 <br><br><br>
 
                 <form [formGroup]="detailsEdit" (ngSubmit)="uploadSubmit()">
@@ -200,7 +200,27 @@
                             </div>
                           </div>
 
-              
+                          <div class="col-md-4 mb-3">
+                            <label for="validationDefault05">Mobile</label>
+                              <div class="form-group">
+                                <input type="text" class="form-control" formControlName="number"
+                                  placeholder="Enter Mobile No" [ngClass]="{ 'is-invalid':
+                                  submitted && controlerData.number.errors }" />
+                                <div *ngIf="submitted && controlerData.number.errors"
+                                  class="invalid-feedback">
+                                  <div *ngIf="controlerData.number.errors.required">Mobile No is
+                                    Required</div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                  
+                                <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
+                               
+                                  
+                              
+                              </div>
+                            </div>
+                
               
                       </div>
                       <!-- <div class="row">
@@ -209,32 +229,15 @@
                             </div>
                         </div>
                                 <br> -->
+                      
                       <div class="row">
                         <div class="col-md-4 mb-3">
-                          <label for="validationDefault05">Mobile</label>
-                            <div class="form-group">
-                              <input type="text" class="form-control" formControlName="number"
-                                placeholder="Enter Mobile No" [ngClass]="{ 'is-invalid':
-                                submitted && controlerData.number.errors }" />
-                              <div *ngIf="submitted && controlerData.number.errors"
-                                class="invalid-feedback">
-                                <div *ngIf="controlerData.number.errors.required">Mobile No is
-                                  Required</div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                
-                              <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
-                             
-                                
-                            
-                            </div>
-                          </div>
-              
-                      </div>
-                      <div class="row">
+                        </div>
                         <div class="col-md-4 mb-3">
-                            <button type="submit" class="btn btn-info">Update</button>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <button type="submit" class="btn btn-primary btn-sm">Update</button>&nbsp;&nbsp;
+                            <button class="btn btn-primary btn-sm" type="reset">Reset</button>
                          </div>
              
                      </div>
@@ -248,6 +251,8 @@
 
 
             </div>
+            </div>
+            <app-footer></app-footer>
             <!-- <div [hidden]="!submitted">
           <h4>You submitted successfully!</h4>
           <button class="btn btn-success" (click)="newStudent()">Add</button>
@@ -263,6 +268,7 @@
         <!-- End of Footer -->
 
     </div>
+    <!-- <app-footer></app-footer> -->
     <!-- End of Content Wrapper -->
 
     <!-- </div> -->

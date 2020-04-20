@@ -78,8 +78,11 @@ export class StudentsComponent implements OnInit {
         data => {
           console.log(data);
           
+          this.reloadData();
         },
         error => console.log(error));
+        alert("Deleted")
+        this.reloadData();
   }
  
  }

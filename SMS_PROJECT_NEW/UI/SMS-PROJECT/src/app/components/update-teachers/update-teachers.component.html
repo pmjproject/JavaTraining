@@ -92,60 +92,14 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          
-
-                  <!-- Topbar Navbar -->
-                  <ul class="navbar-nav ml-auto">
-              
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                      <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-search fa-fw"></i>
-                      </a>
-                      <!-- Dropdown - Messages -->
-                      <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                          <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                              <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </li>
-              
-                    
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login</span>
-                        <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                      </a>
-                      <!-- Dropdown - User Information -->
-                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                          Logout
-                        </a>
-                      </div>
-                    </li>
-              
-                  </ul>
-              
-                </nav>
+                <app-header></app-header>
               
               
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-
-                <span style="font-size: 29px;">Update Teacher</span>
+                <div class="container-fluid">
+                <span style="font-size: 20px;">UPDATE TEACHER</span>
                 <br><br><br>
 
                 <form [formGroup]="detailsEdit" (ngSubmit)="uploadSubmit()">
@@ -221,18 +175,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="col-md-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" formControlName="modelYear"
-                              placeholder="Enter Model Year" [ngClass]="{ 'is-invalid':
-                              submitted && controlerData.modelYear.errors }" />
-                            <div *ngIf="submitted && controlerData.modelYear.errors"
-                              class="invalid-feedback">
-                              <div *ngIf="controlerData.registerdYear.errors.required">Model
-                                Year is Required</div>
-                            </div>
-                          </div> 
-                        </div>-->
+                       
               
               
                         <div class="col-md-4 mb-3">
@@ -298,7 +241,23 @@
                             </div>
                           </div>
 
-              
+                          <div class="col-md-4 mb-3">
+                         
+                            <div class="form-group">
+                              <label for="validationDefault01">Mobile</label>
+                              <input type="text" class="form-control" formControlName ="number"  placeholder="Enter Mobile 01" [ngClass]="{ 'is-invalid': submitted && controlerData.number.errors }"/>
+                              <div *ngIf="submitted && controlerData.number.errors" class="invalid-feedback">
+                                <div *ngIf="controlerData.number.errors.required">Mobile 01 is required</div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                            
+                              <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
+                             
+                                
+                            
+                            </div>
+                            </div>
               
                       </div>
                       <!-- <div class="row">
@@ -307,32 +266,19 @@
                             </div>
                         </div>
                                 <br> -->
-                      <div class="row">
-                        <div class="col-md-4 mb-3">
-                         
-                          <div class="form-group">
-                            <label for="validationDefault01">Mobile</label>
-                            <input type="text" class="form-control" formControlName ="number"  placeholder="Enter Mobile 01" [ngClass]="{ 'is-invalid': submitted && controlerData.number.errors }"/>
-                            <div *ngIf="submitted && controlerData.number.errors" class="invalid-feedback">
-                              <div *ngIf="controlerData.number.errors.required">Mobile 01 is required</div>
-                          </div>
-                          </div>
-                          <div class="form-group">
-                          
-                            <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
-                           
-                              
-                          
-                          </div>
-                          </div>
-              
+                     
+                      
+                     <div class="row">
+                      <div class="col-md-4 mb-3">
                       </div>
-                      <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <button type="submit" class="btn btn-info">Update</button>
-                         </div>
-             
-                     </div>
+                      <div class="col-md-4 mb-3">
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <button type="submit" class="btn btn-primary btn-sm">Update</button>&nbsp;&nbsp;
+                          <button class="btn btn-primary btn-sm" type="reset">Reset</button>
+                       </div>
+           
+                   </div>
                       
               
                     </div>
@@ -341,77 +287,67 @@
                   </form>
               
 
-
-            </div>
-            <!-- <div [hidden]="!submitted">
-          <h4>You submitted successfully!</h4>
-          <button class="btn btn-success" (click)="newStudent()">Add</button>
-        </div> -->
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <!-- <app-footer></app-footer> -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; SMS 2020</span>
-            </div>
-          </div>
-        </footer>
+                </div>
+                <!-- /.container-fluid -->
         
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    <!-- </div> -->
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+              </div>
+              <!-- End of Main Content -->
+        
+              <!-- Footer -->
+              <app-footer></app-footer>
+              <!-- End of Footer -->
+        
+            </div>
+            <!-- End of Content Wrapper -->
+        
+          </div>
+          <!-- End of Page Wrapper -->
+        
+          <!-- Scroll to Top Button-->
+          <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+          </a>
+        
+          <!-- Logout Modal-->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
-    <!-- Core plugin JavaScript-->
-    <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
-
-    <!-- Custom scripts for all pages-->
-    <!-- <script src="js/sb-admin-2.min.js"></script> -->
-
-    <!-- Page level plugins -->
-    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
-
-    <!-- Page level custom scripts -->
-    <!-- <script src="js/demo/chart-area-demo.js"></script> -->
-    <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
-
-</body>
-
-</html>
+          </div>
+        
+          <!-- Bootstrap core JavaScript-->
+          <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+          <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+        
+          <!-- Core plugin JavaScript-->
+          <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+        
+          <!-- Custom scripts for all pages-->
+          <!-- <script src="js/sb-admin-2.min.js"></script> -->
+        
+          <!-- Page level plugins -->
+          <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
+        
+          <!-- Page level custom scripts -->
+          <!-- <script src="js/demo/chart-area-demo.js"></script>
+          <script src="js/demo/chart-pie-demo.js"></script> -->
+        
+        </body>
+        
+        </html>
+        <!-- <router-outlet></router-outlet> -->
+        
+        
+        

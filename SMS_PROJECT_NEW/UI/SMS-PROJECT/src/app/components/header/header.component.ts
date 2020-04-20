@@ -8,10 +8,26 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  username:any;
 
   constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+    public loginservice: AuthenticationService) { 
+      // this.username = JSON.parse(sessionStorage.getItem('username'));
+       this.username = sessionStorage.getItem('username');
 
+    }
+
+
+    details() {
+      console.log(this.username)
+   
+     
+   let user = this.username
+   console.log(user)
+    
+     this.router.navigate(['/profile', user]);
+  
+    }
   ngOnInit(): void {
   }
 

@@ -50,7 +50,7 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <span style="font-size: 29px;">Add New Course</span>
+          <span style="font-size: 20px;">ADD NEW COURSE</span>
           <br><br><br>
 
           <form [formGroup]="courseDetailsregistration" (ngSubmit)="uploadSubmit()">
@@ -73,10 +73,19 @@
             </div>
             
             
+            <div class="row">
+              <div class="col-md-4 mb-3">
+              </div>
+              <div class="col-md-4 mb-3">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <button type="submit" class="btn btn-primary btn-sm">Submit</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" type="reset">Reset</button>
+               </div>
+   
+           </div>
             
             
-            <button type="submit" class="btn btn-primary btn-sm">Submit</button>&nbsp;&nbsp;
-            <button class="btn btn-primary btn-sm" type="reset">Reset</button>
           </form>
 
           

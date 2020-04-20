@@ -109,6 +109,8 @@ export class CourseComponent implements OnInit {
           
         },
         error => console.log(error));
+        alert("Deleted")
+        this.reloadData();
   }
  
  }

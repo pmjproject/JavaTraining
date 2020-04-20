@@ -16,6 +16,7 @@ import { TeachercourseComponent } from './components/teachercourse/teachercourse
 import { StudentcourseComponent } from './components/studentcourse/studentcourse.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthGaurdService } from './auth-gaurd.service';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
 {path:'update-teachers/:id', component:UpdateTeachersComponent,canActivate:[AuthGaurdService]},
 
 {path:'updatecourse/:id', component:UpdatecourseComponent,canActivate:[AuthGaurdService]},
+{path:'profile/:id', component:ProfileComponent,canActivate:[AuthGaurdService]},
 {path:'Studentcourse/:id', component:StudentcourseComponent,canActivate:[AuthGaurdService]},
 {path:'Teachercourse/:id', component:TeachercourseComponent,canActivate:[AuthGaurdService]},
 

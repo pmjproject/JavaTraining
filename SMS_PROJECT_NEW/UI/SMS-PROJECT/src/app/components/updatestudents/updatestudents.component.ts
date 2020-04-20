@@ -24,7 +24,8 @@ export class UpdatestudentsComponent implements OnInit {
     private route: ActivatedRoute,
     private studentsService:StudentsService,
     private formBuilder:FormBuilder,
-    private courseserviceService:CourseserviceService
+    private courseserviceService:CourseserviceService,
+    private router:Router
     
   ) { }
 
@@ -150,6 +151,9 @@ export class UpdatestudentsComponent implements OnInit {
                 return;
               }
             )
+            alert("Updated")
+            this.router.navigate(['students']);
+
     
         } else {
           return;

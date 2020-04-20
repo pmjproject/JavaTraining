@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseserviceService } from 'src/app/courseservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addcourses',
@@ -21,6 +22,7 @@ export class AddcoursesComponent implements OnInit {
 
   constructor(private courseserviceService: CourseserviceService,
     private formBuilder: FormBuilder,
+    private router:Router,
     private cd: ChangeDetectorRef
   ) {
     this.courseserviceService = courseserviceService;
@@ -73,6 +75,8 @@ export class AddcoursesComponent implements OnInit {
             return;
           }
         )
+        alert("Submitted");
+        this.router.navigate(['course']);
 
     } else {
       return;
