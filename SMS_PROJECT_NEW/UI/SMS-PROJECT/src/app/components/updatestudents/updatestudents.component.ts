@@ -4,6 +4,7 @@ import { StudentsService } from 'src/app/students.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseserviceService } from 'src/app/courseservice.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -35,14 +36,14 @@ export class UpdatestudentsComponent implements OnInit {
     this.detailsEdit = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['',  [Validators.required, Validators.email]],
       age: ['', Validators.required],
       dob: ['', Validators.required],
       courseId: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
-      number: ['', Validators.required],
-      number2: ['', Validators.required]
+      number: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      number2: ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
       
     });
     this.displayValueForm()
@@ -151,7 +152,13 @@ export class UpdatestudentsComponent implements OnInit {
                 return;
               }
             )
-            alert("Updated")
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Updated',
+              showConfirmButton: true,
+              timer: 5500
+            })
             this.router.navigate(['students']);
 
     

@@ -25,6 +25,7 @@ import { UpdateTeachersComponent } from './components/update-teachers/update-tea
 import { UpdatecourseComponent } from './components/updatecourse/updatecourse.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
+
 import { StudentcourseComponent } from './components/studentcourse/studentcourse.component';
 import { TeachercourseComponent } from './components/teachercourse/teachercourse.component';
 import { LogoutComponent } from './components/logout/logout.component';

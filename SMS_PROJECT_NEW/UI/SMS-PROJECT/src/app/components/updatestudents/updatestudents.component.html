@@ -84,6 +84,7 @@
                               <div *ngIf="submitted && controlerData.email.errors"
                                 class="invalid-feedback">
                                 <div *ngIf="controlerData.email.errors.required">Email is required</div>
+                                <div *ngIf="controlerData.email.errors.email">Email must be a valid email address</div>
                               </div>
                             </div>
                           </div>
@@ -201,24 +202,24 @@
                           </div>
 
                           <div class="col-md-4 mb-3">
-                            <label for="validationDefault05">Mobile</label>
-                              <div class="form-group">
-                                <input type="text" class="form-control" formControlName="number"
-                                  placeholder="Enter Mobile No" [ngClass]="{ 'is-invalid':
-                                  submitted && controlerData.number.errors }" />
-                                <div *ngIf="submitted && controlerData.number.errors"
-                                  class="invalid-feedback">
-                                  <div *ngIf="controlerData.number.errors.required">Mobile No is
-                                    Required</div>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                  
-                                <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
-                               
-                                  
-                              
-                              </div>
+                            
+                            <div class="form-group">
+                              <label for="validationDefault01">Mobile</label>
+                              <input type="text" class="form-control" formControlName ="number"  placeholder="Enter Mobile 01" [ngClass]="{ 'is-invalid': submitted && controlerData.number.errors }"/>
+                              <div *ngIf="submitted && controlerData.number.errors" class="alert alert-danger">
+                                <div *ngIf="controlerData.number.errors.required">Mobile 01 is required</div>
+                                <div *ngIf="controlerData.number.errors.pattern"><span style="color: red;">Please, Enter 10 digit Mobile Number.</span></div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                            
+                              <input type="text" class="form-control" formControlName ="number2"  placeholder="Enter Mobile 02" />
+                              <div *ngIf="submitted && controlerData.number2.errors" class="alert alert-danger"></div>
+                              <div *ngIf="controlerData.number.errors.pattern"><span style="color: red;">Please, Enter 10 digit Mobile Number.</span></div>
+                             
+                                
+                            
+                            </div>
                             </div>
                 
               

@@ -12,6 +12,7 @@ export class UpdatecourseComponent implements OnInit {
 
  
   id:any;
+  course_name:any;
   
 
   detailsEdit:FormGroup;
@@ -50,7 +51,7 @@ export class UpdatecourseComponent implements OnInit {
     .subscribe(
       data=>{
         console.log(data)
-       this.detailsEdit.controls['course_name'].setValue(data.course_name);
+       this.detailsEdit.controls['course_name'].setValue(data[0].course_name);
        
        
        

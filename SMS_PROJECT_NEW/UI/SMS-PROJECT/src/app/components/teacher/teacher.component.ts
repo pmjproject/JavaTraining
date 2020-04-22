@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherserviceService } from 'src/app/teacherservice.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-teacher',
@@ -76,7 +77,13 @@ export class TeacherComponent implements OnInit {
           
         },
         error => console.log(error));
-        alert("Deleted")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted',
+          showConfirmButton: true,
+          timer: 5500
+        })
         this.reloadData();
   }
  

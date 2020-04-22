@@ -4,7 +4,7 @@ import { StudentsService } from '../../students.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseserviceService } from 'src/app/courseservice.service';
-// import { Students } from '../../students';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -43,14 +43,14 @@ export class AddstudentsComponent implements OnInit {
     this.studentDetailsregistration = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       age: ['', Validators.required],
       dob: ['', Validators.required],
       courseId: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
-      number: ['', Validators.required],
-      number2: ['', Validators.required]
+      number: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      number2: ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
       
     })
     this.reloadData();
@@ -128,7 +128,13 @@ export class AddstudentsComponent implements OnInit {
             return;
           }
         )
-        alert("Submitted");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Submitted',
+          showConfirmButton: true,
+          timer: 5500
+        })
         this.router.navigate(['students']);
 
     } else {

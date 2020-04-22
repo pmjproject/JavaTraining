@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         data=>{
           console.log(data)
-         this.detailsEdit.controls['firstName'].setValue(data[0].firstName);
+         this.detailsEdit.controls['firstName'].setValue(data[0].fName);
          
          this.detailsEdit.controls['lastName'].setValue(data[0].lastName);
          this.detailsEdit.controls['email'].setValue(data[0].email);

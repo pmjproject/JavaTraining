@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Observable } from 'rxjs';
 import { StudentsService } from 'src/app/students.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -81,7 +82,13 @@ export class StudentsComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
-        alert("Deleted")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted',
+          showConfirmButton: true,
+          timer: 5500
+        })
         this.reloadData();
   }
  

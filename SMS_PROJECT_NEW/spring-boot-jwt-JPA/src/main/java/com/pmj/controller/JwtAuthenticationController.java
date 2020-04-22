@@ -19,7 +19,7 @@ import com.pmj.model.UserDTO;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 public class JwtAuthenticationController {
 
