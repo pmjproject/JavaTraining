@@ -70,22 +70,37 @@ export class TeacherComponent implements OnInit {
   
 
   deleteTeacher(data) {
-    this.teacherserviceService.deleteTeacher(data)
-      .subscribe(
-        data => {
-          console.log(data);
-          
-        },
-        error => console.log(error));
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Deleted',
-          showConfirmButton: true,
-          timer: 5500
-        })
-        this.reloadData();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        this.teacherserviceService.deleteTeacher(data)
+        .subscribe(
+          data => {
+            console.log(data);
+            
+          },
+          error => console.log(error));
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Deleted',
+            showConfirmButton: true,
+            timer: 5500
+          })
+          this.reloadData();
+      }
+    })
+  
   }
+
+ 
  
  }
 

@@ -109,8 +109,17 @@
                           <div class="col-md-4 mb-3">
                          
                             <div class="form-group">
-                              <label for="validationDefault01">Password</label>
+                              <label for="validationDefault01">New Password</label>
                               <input type="password" class="form-control" formControlName ="password"  placeholder="Enter Password" [ngClass]="{ 'is-invalid': submitted && controlerData.password.errors }"/>
+                              <div *ngIf="submitted && controlerData.password.errors" class="invalid-feedback">
+                                <div *ngIf="controlerData.password.errors.required">Password is required</div>
+                            </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                              <label for="validationDefault01">Confirm Password</label>
+                              <input type="password" class="form-control" formControlName ="password"  placeholder="Re Enter Password" [ngClass]="{ 'is-invalid': submitted && controlerData.password.errors }"/>
                               <div *ngIf="submitted && controlerData.password.errors" class="invalid-feedback">
                                 <div *ngIf="controlerData.password.errors.required">Password is required</div>
                             </div>

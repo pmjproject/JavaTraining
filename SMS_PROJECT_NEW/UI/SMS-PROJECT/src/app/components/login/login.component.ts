@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -26,11 +27,23 @@ export class LoginComponent implements OnInit {
       data => {
         this.router.navigate(['/home'])
         this.invalidLogin = false
-        alert("Login is successfully")
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Login is successfully',
+          showConfirmButton: false,
+          timer: 4500
+        })
       },
       error => {
         this.invalidLogin = true
-        alert("Invalid Login")
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid Login',
+          
+        })
 
       }
     )

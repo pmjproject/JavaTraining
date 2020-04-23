@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseserviceService } from 'src/app/courseservice.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-updatecourse',
@@ -103,7 +104,13 @@ export class UpdatecourseComponent implements OnInit {
                 return;
               }
             )
-            alert("Updated")
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Updated',
+              showConfirmButton: true,
+              timer: 5500
+            })
             this.router.navigate(['course']);
         } else {
           return;

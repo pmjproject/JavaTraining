@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CourseserviceService } from 'src/app/courseservice.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-addcourses',
@@ -75,7 +77,14 @@ export class AddcoursesComponent implements OnInit {
             return;
           }
         )
-        alert("Submitted");
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Submitted',
+          showConfirmButton: true,
+          timer: 5500
+        })
         this.router.navigate(['course']);
 
     } else {

@@ -23,7 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
 { path: 'students', component: StudentsComponent,canActivate:[AuthGaurdService] },
-{ path: 'login', component: LoginComponent },
+// { path: 'login', component: LoginComponent },
+{ path: '', component: LoginComponent },
 { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
 { path: 'course', component: CourseComponent, canActivate:[AuthGaurdService] },
 { path: 'teacher', component: TeacherComponent,canActivate:[AuthGaurdService] },
