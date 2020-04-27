@@ -3,17 +3,19 @@ package com.pmj.students.service;
 import com.pmj.students.model.Student;
 import com.pmj.students.model.Telephone;
 import com.pmj.students.repository.StudentRepository;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class StudentServiceImpl implements StudentService {
+
 
     @Autowired
     private StudentRepository studentRepository;
@@ -23,7 +25,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> findAllStudents() {
 
-        return studentRepository.findAll();
+        log.info("============Log start for  all students ===========================" );
+        List<Student> lst = studentRepository.findAll();
+        log.info("All students : {}" , lst);
+        log.info("==================Log end for all students=============================");
+        return lst;
 
 
     }
@@ -32,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     public String saveStudent(Student studentData) {
 //        System.out.println("================================================="+studentData.getEmail());
 
-
+        log.info("student saved");
         for (Telephone telephone : studentData.getTelephones()) {
             telephone.setStudent(studentData);
         }
@@ -43,6 +49,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public String updateStudent(Student newStudentData) {
+        log.info("student updated");
         String msg = null;
         if (newStudentData.getId() != 0) {
 
@@ -66,6 +73,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> findByID(Integer id) {
+        log.info("student find by ID");
         return studentRepository.findAllById(id);
     }
 
@@ -107,6 +115,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> getStudentsByCourseId(String id) {
+        log.info("student getStudentsByCourseId");
         List<Student> student = studentRepository.findByCourseId(id);
 
         return student;
@@ -114,11 +123,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> getCourseById(String courseId) {
+        log.info("student getCourseById");
         return studentRepository.findByCourseId(courseId);
     }
 
     @Override
     public String deleteS(Student newStudentData) {
+        log.info("student deleted");
         String msg = null;
         if (newStudentData.getId() != 0) {
             for (Telephone telephone : newStudentData.getTelephones()) {

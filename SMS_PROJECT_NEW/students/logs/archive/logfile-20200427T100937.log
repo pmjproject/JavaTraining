@@ -1,0 +1,3 @@
+#logback.classic pattern: %msg%n
+No active profile set, falling back to default profiles: default
+Started StudentsApplicationTests in 56.994 seconds (JVM running for 63.024)
