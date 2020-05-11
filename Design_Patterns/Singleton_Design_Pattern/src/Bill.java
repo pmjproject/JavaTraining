@@ -10,7 +10,7 @@ public class Bill {
         Double netPrice = itemPrice-discount;
 
 
-        System.out.println("Net Price is: " + netPrice);  // Output user input
+        System.out.println("Net Price is: " + netPrice);  
     }
 }
 
