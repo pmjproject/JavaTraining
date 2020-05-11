@@ -6,7 +6,7 @@ public class Bill {
         System.out.println("Enter Item Price");
 
         Double itemPrice = myObj.nextDouble();
-        Double discount = Discount.getDiscount();
+        Double discount = Discount.getInstance().getDiscount(itemPrice);
         Double netPrice = itemPrice-discount;
 
 
